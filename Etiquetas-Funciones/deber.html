@@ -1,0 +1,239 @@
+<html>
+<head>
+
+ <h1> <p align =center> HTML5 Y JAVASCRIPT </h1>
+
+<body background ="imagenes/fondo azul.jpg">
+
+  <title>Deber</title>
+  
+   
+  <h1> <p align =left> Numeros Primos </h1>
+
+  </head>
+  
+  <body>
+                
+        <label for="numero" > Ingresa numero :</label>		
+        <input type="text" name="dato" id="dato" />
+		<input type="button" name="Calcular" value="Calcular" onclick="calculaPrimos()" id="Calcular" />
+		
+		<script>
+            function calculaPrimos() {
+                var entrada = document.getElementById("dato").value;
+                var NumeroAencontrar = 0;
+                for (i = 0; i <= entrada; i++) {
+                    var Neto = entrada % i;
+                    if (Neto == 0) {
+                        NumeroAencontrar++;
+                    }
+                }
+                if (NumeroAencontrar == 2 || entrada == 1) {
+                    
+                    document.getElementById("salida").innerHTML = "Primo";
+                } else {
+                  document.getElementById("dato").value= "";
+                  document.getElementById("salida").innerHTML = "No Primo";
+                }
+            }
+        </script>
+
+		<br> Resultado <p id="salida" > </p> </br>
+		
+  </body>
+   
+   <h1> <p align =left> Numeros Hexadecimales </h1>
+   
+   <body>
+        <div id="divexa" >  </div>
+        
+		 <label for="numero" > Ingresa numero :</label>
+        <input type="text" id="IngresadoHexadecimal" /> 
+		<input type="button" name="carlcular" value="calcular" onclick="validarHexa()" />
+        
+		<script>
+            function validarHexa() {
+                var nume = document.getElementById('IngresadoHexadecimal').value;
+                var cadena = nume.split("");
+                for (l = 0; l < cadena.length; l++) {
+                    if ((cadena[l] != 1) && (cadena[l] != 2)&&(cadena[l] != 3) && (cadena[l] != 4)&&(cadena[l] != 5)&&
+                        (cadena[l] != 6) && (cadena[l] != 7)&&(cadena[l] != 8) && (cadena[l] != 9)&&(cadena[l] != "A")&&    
+                        (cadena[l] != "B") && (cadena[l] != "C")&&(cadena[l] != "D") && (cadena[l] != "Ë")&&(cadena[l] != "F")  
+                    ) {
+                        alert('No Valido');
+                    }
+                }
+            }
+        </script>
+
+		
+   </body>
+   
+    <h1> <p align =left> Numero de cedula </h1>
+   
+   <body>
+        <div id="divcedu" >  </div>
+        
+		<label for="numero"> Ingresa numero: </label>
+        <input type="text" id="Ingresadanumerocedula" />
+        <input type="button" name="carlcular" value="calcular" onclick="validarCedula()" />
+		
+		
+		<script>
+            function validarCedula()
+            {
+                var cedula = document.getElementById("Ingresadanumerocedula").value;
+                array = cedula.split("");
+                numer = array.length;
+                if (numer == 10)
+                {
+                    total = 0;
+                    nu = (array[9] * 1);
+                    for (j = 0; j < (numer - 1); j++)
+                    {
+                        vari = 0;
+                        if ((j % 2) != 0) {
+                            total = total + (array[j] * 1);
+                        }
+                        else
+                        {
+                            vari = array[j] * 2;
+                            if (vari > 9)
+                                total = total + (vari - 9);
+                            else
+                                total = total + vari;
+                        }
+                    }
+                    re = total / 10;
+                    re = Math.floor(re);
+                    re = (re + 1) * 10;
+                    final = (re - total);
+                    if ((final == 10 && nu == 0) || (final == nu)) {
+                        alert("La Cedula si es valida");
+                        return true;
+                    }
+                    else
+                    {
+                        alert("la Cedula NO es valida");
+                        return false;
+                    }
+                }
+                else
+                {
+                    alert("La cedula solo debe contener 10 digitos");
+                    return false;
+                }
+            }
+        </script>
+
+   </body>
+   
+    <h1> <p align =left> Numero Binario </h1>
+   
+   <body>
+        <div id="divbina" >  </div>
+		      
+     <td>Primer Binario:</td>
+     <td><input type="text" id="PrimerBinario"></td>
+
+	 <td>Segundo Binario:</td>
+     <td><input type="text" id="SegundoBinario" ></td>
+	 <tr>
+       <td>  <input type="button" id="Sumar" value="Sumar" onclick="Binario (document.getElementById('PrimerBinario').value,
+                   document.getElementById('SegundoBinario').value)" /></td>
+	</tr>
+      	<td> <p id="final" ></p> </td>
+       
+
+	</body>
+		
+		<script>
+		  
+		  function Binario(can1, cant2) {
+                var primernumero = parseInt(can1, 2);
+                var segundonumero = parseInt(can2, 2);
+                var sumaBinaria = primernumero + segundonumero;
+                var sumaBinario = conbinario(sumaBinaria);
+               document.getElementById("final").innerHTML = SumaBinaria ;
+
+
+            }
+
+		  function converbinario(bi)
+            {
+                bi = 999;
+                bis = bi;
+                while (bis > 1)
+                {
+                    bi1 = parseInt(bis / 2);
+                    bi2 = bis % 2;
+                    bis = bi1;
+                    if (bi == 999)
+                    {
+                        bi = bi2.toString();
+                    }
+                    else
+                    {
+                        bi = bi2.toString() + bi.toString();
+                    }
+                }
+                if (bis == 1 && bi != 999)
+                {
+                    bi = bis.toString() + bi.toString();
+                }
+                else if (bis == 0 && bi == 999)
+                {
+                    bi = 0;
+                }
+                else if (bi == 999)
+                {
+                    bi = 1;
+                }
+                var ll = va1.length;
+                while (ll % 4 != 0)
+                {
+                    bi = "0" + bi;
+                    ll = bi.length;
+                }
+                return bi;
+            }
+        </script>
+		
+		
+		
+		  <h1> <p align =left> Palabra Invertida </h1>
+		<body>
+        <div id="diviner" >  </div>
+		
+		 <td>Palabra:</td>
+     <td><input type="text" id="palabra" /></td>  
+	 <td>Palabra a invertir:</td>
+     <td><input type="text" id="palabra2" ></td>
+	  <tr>   
+       <td><input type="button" id="Invertir" value="Invertir" onclick="Invertir(document.getElementById('palabra').value, document.getElementById('palabra2').value)">
+        
+       <td><p id="mensajes"></p></td>              
+    </tr>           
+
+        
+		<script>
+            function Invertir(cadena1, cadena2) {
+                var letras = cadena1.split(" ");
+                for (i = 0; i < letras.length; i++) {
+                    if (letras[i] == cadena2) {
+                        document.getElementById("mensajes").innerHTML = invertir(letras[i]);                          
+                    }
+                }
+            }
+            function invertir(pala) {
+                var caract = pala.length;
+                var palaInvertida = "";
+                while (caract >= 0) {
+                    palaInvertida = palaInvertida + pala.charAt(caract);
+                    caract--;
+                }
+                return palaInvertida;
+            }
+        </script>
+
+</html>
